@@ -27,9 +27,7 @@ class Solution
 
            	//condition 3->swap idx1,2
 
-            int temp = nums[idx1];
-            nums[idx1] = nums[idx2];
-            nums[idx2] = temp;
+            swap(nums[idx1],nums[idx2]);
 
             reverse(nums.begin() + idx1 + 1, nums.end());
         }
