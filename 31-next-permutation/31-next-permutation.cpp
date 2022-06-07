@@ -26,6 +26,7 @@ class Solution
             }
 
            	//condition 3->swap idx1,2
+            //nikhil
 
             swap(nums[idx1],nums[idx2]);
 
