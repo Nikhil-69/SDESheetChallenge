@@ -3,13 +3,27 @@ class Solution
     public:
         int findDuplicate(vector<int> &nums)
         {
-            unordered_map<int, int> mp;
-            for (int i = 0; i < nums.size(); i++)
+            ios_base::sync_with_stdio(0);
+            cin.tie(nullptr);
+            cout.tie(nullptr);
+
+            int n = nums.size();
+            bool *x = new bool[n];
+
+            for (int i = 0; i < n; i++)
             {
-                if (mp[nums[i]] == 1)
-                    return nums[i];
-                mp[nums[i]]++;
+                x[i] = false;
             }
+
+            for (int i = 0; i < n; i++)
+            {
+                if (x[nums[i] - 1])
+                    return nums[i];
+                else
+                    x[nums[i] - 1] = true;
+            }
+
             return -1;
         }
+
 };
