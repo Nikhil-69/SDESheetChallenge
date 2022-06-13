@@ -6,24 +6,14 @@ class Solution
             ios_base::sync_with_stdio(0);
             cin.tie(nullptr);
             cout.tie(nullptr);
-
-            int n = nums.size();
-            bool *x = new bool[n];
-
-            for (int i = 0; i < n; i++)
+            
+            unordered_map<int, bool> mp;
+            for (int i = 0; i < nums.size(); i++)
             {
-                x[i] = false;
-            }
-
-            for (int i = 0; i < n; i++)
-            {
-                if (x[nums[i] - 1])
+                if (mp[nums[i]] == 1)
                     return nums[i];
-                else
-                    x[nums[i] - 1] = true;
+                mp[nums[i]] = true;
             }
-
             return -1;
         }
-
 };
