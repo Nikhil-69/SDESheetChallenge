@@ -1,13 +1,15 @@
-class Solution {
-public:
-    int findDuplicate(vector<int>& nums) {
-        map<int ,int> mp;
-        for(int i=0;i<nums.size();i++)
+class Solution
+{
+    public:
+        int findDuplicate(vector<int> &nums)
         {
-           if( mp[nums[i]]==1)
-               return nums[i];
-            mp[nums[i]]++;
+            unordered_map<int, int> mp;
+            for (int i = 0; i < nums.size(); i++)
+            {
+                if (mp[nums[i]] == 1)
+                    return nums[i];
+                mp[nums[i]]++;
+            }
+            return -1;
         }
-        return -1;
-    }
 };
