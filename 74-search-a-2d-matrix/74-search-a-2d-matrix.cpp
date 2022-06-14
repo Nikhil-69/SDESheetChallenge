@@ -3,12 +3,14 @@ class Solution
     public:
         bool searchMatrix(vector<vector < int>> &matrix, int target)
         {
+            //this is linear search
+            //but for best optimal solution use binary search for both finding row and colum;
             int search_row = 0;
             int m = matrix.size();
             int n = matrix[0].size();
             for (int i = 1; i < m; i++)
             {
-                 search_row = i;
+                search_row = i;
                 if (matrix[i][0] == target)
                     return true;
                
