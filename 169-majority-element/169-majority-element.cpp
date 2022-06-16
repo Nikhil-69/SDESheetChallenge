@@ -14,7 +14,10 @@ class Solution
                 else
                 {
                     if (curr_cnt <= 0)
+                    {
                         curr = nums[i];
+                        curr_cnt++;
+                    }
                     else
                         curr_cnt--;
                 }
