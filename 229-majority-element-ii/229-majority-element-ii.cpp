@@ -13,12 +13,12 @@ class Solution
                 {
                     if (v.size() == 0)
                         v.push_back(nums[i]);
-                    else if(v[0]!=nums[i])
+                    else if (v[0] != nums[i])
                     {
-                         v.push_back(nums[i]);
+                        v.push_back(nums[i]);
                         return v;
                         break;
-                    }  
+                    }
                 }
             }
             return v;
