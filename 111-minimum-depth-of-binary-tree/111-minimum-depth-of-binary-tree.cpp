@@ -16,7 +16,7 @@ public:
             return 0;
         int left=minDepth(root->left);
         int right=minDepth(root->right);
-        return root->left && root->right?min(left,right)+1:max(left,right)+1;
+        return left && right ?min(left,right)+1:max(left,right)+1;
         
         
         
