@@ -3,17 +3,21 @@ class Solution
     public:
         vector<int> twoSum(vector<int> &nums, int target)
         {
-            unordered_map<int, int> mp;
-            int n=nums.size();
+            int n = nums.size();
+            vector<int> v;
             for (int i = 0; i < n; i++)
             {
-                mp[nums[i]] = i;
+                int a = nums[i];
+                for (int j = i + 1; j < n; j++)
+                {
+                    int b = nums[j];
+                    if (a + b == target)
+                    {
+                        v.push_back(i);
+                        v.push_back(j);
+                    }
+                }
             }
-            for (int i = 0; i < n; i++)
-            {
-                if ((mp[target - nums[i]]!=0) && mp[target - nums[i]] != i)
-                    return {i,mp[target - nums[i]]};
-            }
-            return {-1,-1};
+            return v;
         }
 };
