@@ -11,10 +11,10 @@ class Solution
             }
             return true;
         }
-    int mincut_helper(string &s, int i, int j,vector<vector<int>> &dp)
+    int mincut_helper(string &s, int i, int j,vector<int> &dp)
     {
-        if (dp[i][j] != -1)
-            return dp[i][j];
+        if (dp[i]!= -1)
+            return dp[i];
         if (i >= j || check_palindrome(s, i, j))
             return 0;
         
@@ -24,19 +24,19 @@ class Solution
             
             if (check_palindrome(s, i, k))
             { 
-                if (dp[k + 1][j] == -1)
-                dp[k + 1][j] = mincut_helper(s, k + 1, j,dp);
+                if (dp[k + 1] == -1)
+                dp[k + 1] = mincut_helper(s, k + 1, j,dp);
                 
-                int temp = 1 + dp[k + 1][j];
+                int temp = 1 + dp[k + 1];
                 ans = min(ans, temp);
             }
         }
-        return dp[i][j] = ans;
+        return dp[i] = ans;
     }
     int minCut(string s)
     {
         int n = s.length();
-        vector<vector<int>> dp (n+1, vector<int> (n+1, -1));
+        vector<int> dp (n+1,-1);
         return mincut_helper(s, 0, n- 1,dp);
     }
 };
