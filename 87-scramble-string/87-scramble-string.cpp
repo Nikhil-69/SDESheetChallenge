@@ -4,8 +4,8 @@ class Solution
         unordered_map<string,bool> ump;
         bool solve(string s1, string s2)
         {
-            if(ump.find(s1+" "+s2)!=ump.end())
-                return ump[s1+" "+s2];
+            if(ump.find(s1+s2)!=ump.end())
+                return ump[s1+s2];
             if (s1.size() == 0)
                 return false;
             if (s1 == s2)
@@ -25,7 +25,7 @@ class Solution
                     flag = true;
                 }
             }
-            return ump[s1+" "+s2]=flag;
+            return ump[s1+s2]=flag;
         }
         bool isScramble(string s1, string s2)
         {
