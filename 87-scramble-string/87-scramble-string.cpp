@@ -25,7 +25,7 @@ class Solution
                     flag = true;
                 }
             }
-            return ump[s1+" "+s2]=ump[s2+" "+s1]=flag;
+            return ump[s1+" "+s2]=flag;
         }
         bool isScramble(string s1, string s2)
         {
