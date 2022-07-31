@@ -7,7 +7,7 @@ public:
             int mid=start+(end-start)/2;
             if(nums[mid]==target)
                 return mid;
-            if(nums[mid]>target)
+            else if(nums[mid]>target)
                 end=mid-1;
             else
                 start=mid+1;
