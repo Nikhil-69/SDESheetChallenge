@@ -1,0 +1,1 @@
+check right array always before left
