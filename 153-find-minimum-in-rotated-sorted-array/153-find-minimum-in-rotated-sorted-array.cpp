@@ -6,12 +6,7 @@ class Solution
             int start = 0;
             int end = nums.size() - 1;
             int n = nums.size();
-            if(n==1){
-                return nums[0];
-            }
-            if(n==2){
-                return min(nums[0],nums[1]);
-            }
+            
             while (start <= end)
             {
                 int mid = start + (end - start) / 2;
@@ -22,11 +17,11 @@ class Solution
                     return nums[mid];
                 }
 
-                if (nums[mid] > nums[end])	//right is sorted so search in left
+                if (nums[mid] > nums[end])	//left is sorted so search in right
                     start = mid + 1;
 
                 if(nums[mid]<nums[end])
-                    end=mid;
+                    end=mid-1;
                     
             }
             return 0;
