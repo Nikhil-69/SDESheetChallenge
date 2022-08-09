@@ -12,12 +12,13 @@ public:
         {
             if (grid[i][j] == 2)
                 q.push({{i, j}, 0});
-            if (grid[i][j] == 1)
+            else if (grid[i][j] == 1)
                 cnt++;
         }
     }
     if(cnt==0)
     return 0;
+        
     int time = 0;
     while (q.size())
     {
