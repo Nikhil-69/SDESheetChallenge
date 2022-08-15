@@ -5,15 +5,13 @@
         public:
             vector<int> dailyTemperatures(vector<int> &temperatures)
             {
-
                 int n = temperatures.size();
-                vector<int> v(n,0);
+                vector<int> v(n, 0);
                 stack<pii> st;
                 for (int i = n - 1; i >= 0; i--)
                 {
                     if (st.empty())
                     {
-                        // v.push_back(0);
                         st.push({ temperatures[i],i });
                     }
                     else
@@ -24,19 +22,17 @@
                         }
                         if (st.empty())
                         {
-                            // v.push_back(0);
                             st.push({ temperatures[i],i });
                         }
                         else
                         {
-                            pii top=st.top();
-                            int sec=top.second;
-                            v[i]=(sec-i);
+                            pii top = st.top();
+                            int sec = top.second;
+                            v[i] = (sec - i);
                             st.push({ temperatures[i],i });
                         }
                     }
                 }
-                 // reverse(v.begin(),v.end());
                 return v;
             }
     };
