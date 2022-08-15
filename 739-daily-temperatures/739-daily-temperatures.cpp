@@ -28,9 +28,7 @@
                         }
                         else
                         {
-                            pii top = st.top();
-                            int sec = top.second;
-                            v[i] = (sec - i);
+                            v[i] = (st.top().second - i);
                             st.push({ temperatures[i],i });
                         }
                     }
