@@ -6,12 +6,13 @@
             vector<int> dailyTemperatures(vector<int> &temperatures)
             {
                 int n = temperatures.size();
-                vector<int> v(n, 0);
+                vector<int> v(n);
                 stack<pii> st;
                 for (int i = n - 1; i >= 0; i--)
                 {
                     if (st.empty())
                     {
+                        v[i]=0;
                         st.push({ temperatures[i],i });
                     }
                     else
@@ -22,6 +23,7 @@
                         }
                         if (st.empty())
                         {
+                            v[i]=0;
                             st.push({ temperatures[i],i });
                         }
                         else
