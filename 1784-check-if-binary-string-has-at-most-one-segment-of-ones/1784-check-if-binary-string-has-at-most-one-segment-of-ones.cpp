@@ -1,6 +1,6 @@
 class Solution {
 public:
-    bool checkOnesSegment(string s) {
+    bool checkOnesSegment(string &s) {
         bool flag=0;
         for(auto c:s)
         {
