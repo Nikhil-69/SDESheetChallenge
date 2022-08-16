@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int firstUniqChar(string s) {
+    int firstUniqChar(string &s) {
         vector<int> v(26,0);
         for(auto it : s)
         {
