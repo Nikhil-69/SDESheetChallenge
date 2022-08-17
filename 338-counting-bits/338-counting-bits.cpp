@@ -13,7 +13,7 @@ class Solution
         int temp = n;
         while(temp != 0){
             cnt++;
-            temp = temp & (temp-1);
+            temp &= (temp-1);
         }
         // 100010000
         //     &
