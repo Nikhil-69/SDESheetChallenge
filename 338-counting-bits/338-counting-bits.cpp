@@ -11,11 +11,15 @@ class Solution
         };
         int cnt = 0;
         int temp = n;
-        while (temp > 0)
-        {
-            if (temp % 2 == 1)
-                cnt++;
-            temp /= 2;
+        // while (temp > 0)
+        // {
+        //     if (temp % 2 == 1)
+        //         cnt++;
+        //     temp /= 2;
+        // }
+        while(temp != 0){
+            cnt++;
+            temp = temp & (temp-1);
         }
         v.push_back(cnt);
         countBits_help(n - 1);
