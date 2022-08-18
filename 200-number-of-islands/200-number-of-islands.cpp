@@ -3,31 +3,31 @@
 class Solution
 {
     public:
-    // void bfs(vector<vector < char>> &grid, int i, int j)
-    // {
-    //     int n = grid.size();
-    //     int m = grid[0].size();
-    //     queue<pii> q;
-    //     q.push({ i,j });
-    //     while (q.size())
-    //     {
-    //         int x = q.front().first;
-    //         int y = q.front().second;
-    //         q.pop();
-    //         vector<pii> dir = {{ 1,0 },{ -1,0 },{ 0, 1 },{ 0,-1 }};
-    //         for (auto it: dir)
-    //         {
-    //             int newx=x + it.first;
-    //             int newy= y + it.second;
-    //             if (newx >= 0 && newx < n && newy >= 0 && newy < m && grid[newx][newy] == '1')
-    //             {
-    //                 q.push({ newx,newy});
-    //                 grid[newx][newy] = '0';
-    //             }
-    //         }
-    //     }
-    //     return;
-    // }
+    void bfs(vector<vector < char>> &grid, int i, int j)
+    {
+        int n = grid.size();
+        int m = grid[0].size();
+        queue<pii> q;
+        q.push({ i,j });
+        while (q.size())
+        {
+            int x = q.front().first;
+            int y = q.front().second;
+            q.pop();
+            vector<pii> dir = {{ 1,0 },{ -1,0 },{ 0, 1 },{ 0,-1 }};
+            for (auto it: dir)
+            {
+                int newx=x + it.first;
+                int newy= y + it.second;
+                if (newx >= 0 && newx < n && newy >= 0 && newy < m && grid[newx][newy] == '1')
+                {
+                    q.push({ newx,newy});
+                    grid[newx][newy] = '0';
+                }
+            }
+        }
+        return;
+    }
     int numIslands(vector<vector < char>> &grid)
     {
         int n = grid.size();
@@ -39,28 +39,8 @@ class Solution
             {
                 if (grid[i][j] == '1')
                 {
+                    bfs(grid, i, j);
                     cnt++;
-                    //calling bfs
-                    queue<pii> q;
-                    q.push({ i,j });
-                    while (q.size())
-                    {
-                        int x = q.front().first;
-                        int y = q.front().second;
-                        q.pop();
-                        vector<pii> dir = {{ 1,0 },{ -1,0 },{ 0, 1 },{ 0,-1 }};
-                        for (auto it: dir)
-                        {
-                            int newx=x + it.first;
-                            int newy= y + it.second;
-                            if (newx >= 0 && newx < n && newy >= 0 && newy < m && grid[newx][newy] == '1')
-                            {
-                                q.push({ newx,newy});
-                                grid[newx][newy] = '0';
-                            }
-                        }
-                    }
-                    
                 }
             }
         }
