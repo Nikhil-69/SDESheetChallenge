@@ -1,16 +1,13 @@
+int dp[101][101] = { 0 };
 class Solution
 {
     public:
         int uniquePaths(int m, int n)
         {
-            double ans=1;
-            if(n>m)
-                swap(n,m);
-            for (int i = 0; i < n - 1; i++)
-            {
-                ans *= double(m + n - 2 - i);
-                ans/=double(i+1);
-            }
-            return int(ans);
+            if (m == 1 || n == 1)
+                return 1;
+            if (dp[m][n] != 0) return dp[m][n];
+            int ans = uniquePaths(m - 1, n) + uniquePaths(m, n - 1);
+            return dp[m][n] = ans;
         }
 };
