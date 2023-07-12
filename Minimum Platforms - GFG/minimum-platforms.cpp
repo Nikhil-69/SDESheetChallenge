@@ -14,17 +14,22 @@ class Solution{
     {
     	sort(arr,arr + n);
     	sort(dep,dep + n);
-    	int cnt=0;
+    	
     	int mx=0;
+    
     	for(int i=0;i<n;i++)
     	{
-    	    for(int j=i;j<n;j++)
+    	    int l=i+1;
+    	    int r=n-1;
+    	    while(l<=r)
     	    {
-    	        if(arr[j]<=dep[i])
-    	        cnt++;
+    	        int mid=l+(r-l)/2;
+    	        if(arr[mid]<=dep[i])
+    	            l=mid+1;
+    	        else
+    	            r=mid-1;
     	    }
-    	    mx=max(mx,cnt);
-    	    cnt=0;
+    	    mx=max(mx,r-i+1);
     	}
     	return mx;
     }
