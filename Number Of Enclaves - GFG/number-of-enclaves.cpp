@@ -15,24 +15,14 @@ class Solution {
         int n = grid.size();
         int m = grid[0].size();
         queue<pair<int, int>> q;
-        for(int i = 0; i < n; i++) {
-            if(grid[i][0] == 1) {
-                q.push({i, 0});
-                grid[i][0] = 0;
-            }
-            if(grid[i][m - 1] == 1) {
-                q.push({i, m - 1});
-                grid[i][m - 1] = 0;
-            }
-        }
-        for(int i = 0; i < m; i++) {
-            if(grid[0][i] == 1) {
-                q.push({0, i});
-                grid[0][i] = 0;
-            }
-            if(grid[n - 1][i] == 1) {
-                q.push({n - 1, i});
-                grid[n - 1][i] = 0;
+        int ans = 0;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                if(grid[i][j] == 1 && (i == 0 || j == 0 || i == n-1 || j == m-1)){
+                    q.push({i, j});
+                    grid[i][j] = 0;
+                }
+                if(grid[i][j] == 1) ans++;
             }
         }
         vector<pair<int,int>> dir = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
@@ -46,17 +36,11 @@ class Solution {
                 if(nx >= 0 && nx < n && ny >= 0 && ny < m && grid[nx][ny] == 1) {
                     q.push({nx, ny});
                     grid[nx][ny] = 0;
+                    ans--;
                 }
             }
         }
-        int ans = 0;
-        for(int i = 0; i < n; i++) {
-            for(int j = 0;j < m; j++) {
-                if(grid[i][j] == 1) {
-                    ans++;
-                }
-            }
-        }
+        
         return ans;
     }
 };
