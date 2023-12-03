@@ -15,9 +15,9 @@ class Solution {
         vector<int> ans;
         while(q.size())
         {
-            int n=q.size();
-            while(n--)
-            {
+            // int n=q.size();
+            // while(n--)
+            // {
                 int front=q.front();
                 q.pop();
                 ans.push_back(front);
@@ -29,7 +29,7 @@ class Solution {
                         vis[it]=1;
                     }
                 }
-            }
+            // }
         }
         return ans;
     }
